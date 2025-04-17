@@ -3,7 +3,6 @@ Welcome to ClassyCorner — a fully functional and responsive e-commerce web sto
 
 ✨ Key Features
 🛍️ Product Catalog — Browse products with filter/sort options.
-
 🔍 Product Details Page — View comprehensive info for each item.
 🛒 Shopping Cart — Add, remove, and update product quantities.
 🔐 User Authentication — Register/Login securely via Firebase Authentication.
