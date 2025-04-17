@@ -1,0 +1,168 @@
+<div class="container text-light">
+  <h1 class="text-center mt-4">Add Product</h1>
+  <form (ngSubmit)="AddProduct()">
+    <div class="row mt-2">
+      <div class="col-12">
+        <label>Name</label>
+        <input name="product.name" class="form-control" />
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-12">
+        <label>Category</label>
+        <select name="product.category" class="form-control">
+          <option>Men's</option>
+          <option>Women's</option>
+          <option>Kids</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6">
+        <label>Price</label>
+        <input
+          name="product.price"
+          [(ngModel)]="product.price"
+          type="number"
+          class="form-control"
+        />
+      </div>
+      <div class="col-6">
+        <label>Quantity</label>
+        <input
+          name="product.quantity"
+          [(ngModel)]="product.quantity"
+          type="number"
+          class="form-control"
+        />
+      </div>
+    </div>
+    <div class="row mt-2 flex justify-content-end">
+      <div class="col-2">
+        <button type="submit" class="btn btn-primary" (ngSubmit)="AddProduct()">
+          Add Product
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <h1 class="text-center mt-5">Product Section</h1>
+  <table datatable class="table table-striped">
+    <thead>
+      <td>ID</td>
+      <td>Name</td>
+      <td>Price</td>
+      <td>Category</td>
+      <td>Quantity</td>
+      <td>Action</td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of products">
+        <td>{{ p.id }}</td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.price }}</td>
+        <td>{{ p.category }}</td>
+        <td>{{ p.quantity }}</td>
+
+        <td>
+          <button
+            (click)="SelectedProduct(p)"
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#editProductModal"
+          > Edit
+        </button>
+            <div
+              class="modal fade"
+              id="editProductModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      Edit Product
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <form (ngSubmit)="UpdateProduct()">
+                    <div class="modal-body">
+                      <div class="row mt-2">
+                        <div class="col-12">
+                          <label>Name</label>
+                          <input
+                            name="product.name"
+                            [(ngModel)]="p.name"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col-12">
+                          <label>Category</label>
+                          <select
+                            name="product.category"
+                            [(ngModel)]="p.category"
+                            class="form-control"
+                          >
+                            <option>Men's</option>
+                            <option>Women's</option>
+                            <option>Kid's</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col-6">
+                          <label>Price</label>
+                          <input
+                            name="p.price"
+                            [(ngModel)]="p.price"
+                            type="number"
+                            class="form-control"
+                          />
+                        </div>
+                        <div class="col-6">
+                          <label>Quantity</label>
+                          <input
+                            name="product.quantity"
+                            [(ngModel)]="p.quantity"
+                            type="number"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button type="submit" class="btn btn-primary">
+                        Updated
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+           
+
+          <button class="ms-2 btn btn-danger" (click)="DeleteProduct(p.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+.carousel-item {
+  height: 30rem;
+}
+.carousel-image {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-img-1 {
+  background-image: url(assets/5.webp);
+  background-position: center;
+}
+.bg-img-2 {
+  background-image: url(assets/6.webp);
+  background-position: left;
+}
+.bg-img-3 {
+  background-image: url(assets/download.webp);
+  background-position: left;
+}
+li {
+  list-style: none;
+  
+}
